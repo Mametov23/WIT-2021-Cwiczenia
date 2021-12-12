@@ -1,7 +1,7 @@
 from zadanie2 import Employee
 import unittest
 
-class Zadanie2Test(unittest.TestCase):
+class TestZadanie2(unittest.TestCase):
     def test_introduce_self(self):
         nn = Employee('eldar', 'mametov', '18', 8000 )
         self.assertEqual(nn.introduce_self(), 'My name is eldar mametov and I am 18 years old')

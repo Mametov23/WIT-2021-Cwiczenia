@@ -1,7 +1,7 @@
 import zadanie4
 import unittest
 
-class Zadanie4Test(unittest.TestCase):
+class TestZadanie4(unittest.TestCase):
     def test_add(self, x = 1, y = 1):
         if ((type(x) and type(y)) == (int or float)):
             self.assertEqual(zadanie4.add(x, y), 2)
