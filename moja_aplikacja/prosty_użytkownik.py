@@ -3,7 +3,6 @@ import organizator_materiałów
 import auth1
 
 
-uzytkownicy = {"Admin": "eldart987654"}
 user_is_authenticated = False
 
 while True:
@@ -12,13 +11,6 @@ while True:
     print('3. Powrót do wyboru użytkownika')
     option = input('Wybierz opcję: ')
     if option == '1':
-        login, haslo = auth1.register()
-        uzytkownicy[login] = haslo
-    elif option == '2':
-        user_is_authenticated = auth1.login(uzytkownicy)
-        if user_is_authenticated:
-            print('Zalogowano pomyślnie')
-        else:
-            print('Niepoprawne dane logowania')
+        register_uzytkownikow
     elif option == '3':
         wybieranie_użytkownika
