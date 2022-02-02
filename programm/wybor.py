@@ -1,18 +1,30 @@
 import sqlite3
+import os
+import dodawanie_wpisow
+import w_imp
+import admin
+
 
 def maiin():
     print('Выбери нужную тебе функцию')
     print('1. Ищю мероприятие')
     print('2. Я организатор мероприятий')
+    print('3. Администратор')
 
-    n = int(input('какая функция тебе нужна: '))
+    n = input('какая функция тебе нужна: ')
 
-    if n == 1: 
+    if n == '1': 
         nana()
-    elif n == 2:
+    elif n == '2':
         man()
+    elif n == '3':
+        admin()
+    else: 
+        print('Введено не верное значение')
+        maiin()
 
 
+""" Те, кто ищут мероприятие """
 
 def registery():
     db = sqlite3.connect(r'programm/users.db')
@@ -55,7 +67,7 @@ def authy():
         nana()
     else: 
         print("Wszystkie dane są poprawne")
-        nana()
+        w_imp.glawna()
 
     conm.close()
 
@@ -66,15 +78,16 @@ def nana():
     print('2. авторизоваться')
     print('3. к выбору')
 
-    x = int(input('Напиши цифру твоего выбора: '))
+    x = input('Напиши цифру твоего выбора: ')
 
-    if x == 1: 
+    if x == '1': 
         registery()
-    elif x == 2: 
+    elif x == '2': 
         authy()
     else: 
         maiin()
 
+""" Ниже организаторы мероприятий """
 
 def registerr():
     dbb = sqlite3.connect(r'programm/organizator.db')
@@ -103,24 +116,6 @@ def registerr():
 
     dbb.close()
 
-def authh():
-    print('Logowanie')
-    loggin = input('Wpisz swój login: ')
-    passsword = input('Wpisz swój hasło: ')
-    con = sqlite3.connect(r'programm/organizator.db')
-    curs = con.cursor()
-    curs.execute(f"SELECT * FROM organizator WHERE login = '{loggin}' AND password = '{passsword}'")
-    con.commit()
-
-    if curs.fetchone() is None:
-        print('Wprowadzone dane są nieprawidłowe')
-        man()
-    else: 
-        print("Wszystkie dane są poprawne")
-        man()
-
-    con.close()
-
 def man():
 
     print('Добро пожаловать в табло организаторов')
@@ -129,15 +124,21 @@ def man():
     print('2. авторизоваться')
     print('3. к выбору')
 
-    n = int(input('Напиши цифру твоего выбора: '))
+    n = input('Напиши цифру твоего выбора: ')
 
-    if n == 1: 
+    if n == '1': 
         registerr()
-    elif n == 2: 
-        authh()
-    else: 
+    elif n == '2': 
+        dodawanie_wpisow.authh()
+    elif n == '3':
+        maiin()
+    else:  
+        print('Введено не верное значение!')
         maiin()
 
+""" Ниже функции администратора """
+def mana(): 
+    admin.logo()
 
 
 maiin()
