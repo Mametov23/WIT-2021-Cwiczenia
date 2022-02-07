@@ -81,7 +81,7 @@ def dod():
     if po.fetchone(): 
         po.execute("INSERT INTO org VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (users_nazwa, users_opis, users_tim, users_jezyk, users_age, users_plat, users_kraj, users_city, users_ul, users_login))
         do.commit()
-        print('Запись добавлена')
+        print('Wpis dodany')
         gg()
     else: 
         print('Запись не добалена/либо же такая запись уже есть')
