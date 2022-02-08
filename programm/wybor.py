@@ -6,12 +6,12 @@ import admin
 
 
 def maiin():
-    print('Выбери нужную тебе функцию')
-    print('1. Ищю мероприятие')
-    print('2. Я организатор мероприятий')
-    print('3. Администратор')
+    print('Wybierz żądaną funkcję')
+    print('1. Szukam imprezy')
+    print('2. Jestem organizatorem imprez')
+    print('3. Administrator')
 
-    n = input('какая функция тебе нужна: ')
+    n = input('jakiej funkcji potrzebujesz: ')
 
     if n == '1': 
         nana()
@@ -20,11 +20,11 @@ def maiin():
     elif n == '3':
         admin()
     else: 
-        print('Введено не верное значение')
+        print('Wprowadzono niepoprawną wartość')
         maiin()
 
 
-""" Те, кто ищут мероприятие """
+""" Osoby szukające imprezy """
 
 def registery():
     db = sqlite3.connect(r'programm/users.db')
@@ -72,13 +72,13 @@ def authy():
     conm.close()
 
 def nana():
-    print('Добро пожаловать в табло поисковиков')
-    print("Выбери функцию, которая тебе нужна")
-    print('1. зарегестрироваться')
-    print('2. авторизоваться')
-    print('3. к выбору')
+    print('Witamy w wyszukiwarkach wyników')
+    print("Wybierz funkcję, której potrzebujesz")
+    print('1. Zarejestruj się')
+    print('2. autoryzować')
+    print('3. do wyboru')
 
-    x = input('Напиши цифру твоего выбора: ')
+    x = input('Napisz cyfrę swojego wyboru: ')
 
     if x == '1': 
         registery()
@@ -87,7 +87,7 @@ def nana():
     else: 
         maiin()
 
-""" Ниже организаторы мероприятий """
+""" Poniżej organizatorzy imprez """
 
 def registerr():
     dbb = sqlite3.connect(r'programm/organizator.db')
@@ -118,13 +118,13 @@ def registerr():
 
 def man():
 
-    print('Добро пожаловать в табло организаторов')
-    print("Выбери функцию, которая тебе нужна")
-    print('1. зарегестрироваться')
-    print('2. авторизоваться')
-    print('3. к выбору')
+    print('Witamy na tablicy organizatorów')
+    print("Wybierz funkcję, której potrzebujesz")
+    print('1. Zarejestruj się')
+    print('2. autoryzować')
+    print('3. do wyboru')
 
-    n = input('Напиши цифру твоего выбора: ')
+    n = input('Napisz cyfrę swojego wyboru: ')
 
     if n == '1': 
         registerr()
@@ -133,10 +133,10 @@ def man():
     elif n == '3':
         maiin()
     else:  
-        print('Введено не верное значение!')
+        print('Wprowadzono niepoprawną wartość!')
         maiin()
 
-""" Ниже функции администратора """
+""" Poniżej funkcje administratora """
 def mana(): 
     admin.logo()
 

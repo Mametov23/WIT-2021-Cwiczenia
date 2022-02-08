@@ -10,7 +10,7 @@ class TestZadanie3(unittest.TestCase):
         self.skipTest(self)
 
     def test_calculate_saving(self, starting_amount, monthly_payment, monthly_deductions):
-
+        pass
 
 #Długo myślałem, jak to zrobić, ale tam i nie mógł wykonać
 

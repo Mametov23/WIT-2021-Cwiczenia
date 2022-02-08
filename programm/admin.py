@@ -1,10 +1,10 @@
 import sqlite3
 
 def logo(): 
-    print("Авторизация")
+    print("Logowanie")
     global log
-    log = input('Введи логин: ')
-    pas = input('Введи пароль: ')
+    log = input('Wpisz login: ')
+    pas = input('Wpisz hasło: ')
 
     con = sqlite3.connect(r'programm/admin.db')
     curs = con.cursor()
@@ -23,14 +23,14 @@ def logo():
 
 
 def h(): 
-    print('Админ панель')
-    print('1. Посмотреть жалобы от пользователей')
-    print('2. Отправить предупреждение организатору')
-    print('3. Удалить организатора')
-    print('4. Посмотреть все мероприятия')
-    print('4. Стоп')
+    print('Admin panel')
+    print('1. Zobacz skargi od użytkowników')
+    print('2. Wyślij Ostrzeżenie do organizatora')
+    print('3. Usuń organizatora')
+    print('4. Zobacz wszystkie wydarzenia')
+    print('4. Stop')
     
-    e = input('Введите номер функции: ')
+    e = input('Wprowadź numer funkcji: ')
 
     if e == '1': 
         zaloby()
@@ -50,7 +50,7 @@ def zaloby():
     
     three_results = li.fetchall()
     print(three_results)
-    input("Нажмите Enter, что бы продолжить")
+    input("Naciśnij Enter, aby kontynuować")
     ll.close()
     h()
 def predy(): 
@@ -65,18 +65,18 @@ def predy():
 
     do.commit()
 
-    nazwaor = input('Логин организатора на которого поступает предупреждение: ')
-    dlaczegoo = input('Введите коротко причину предупреждения: ')
-    opisanie = input("Опишите причину подробнее: ")
+    nazwaor = input('Login Organizatora na który napływa Ostrzeżenie: ')
+    dlaczegoo = input('Wpisz krótko powód Ostrzeżenia: ')
+    opisanie = input("opisz bardziej szczegółowo przyczynę skargi na użytkownika: ")
 
     po.execute(f"SELECT * FROM pred")
     if po.fetchone(): 
         po.execute("INSERT INTO pred VALUES (?, ?, ?)", (nazwaor, dlaczegoo, opisanie))
         do.commit()
-        print('Запись добавлена')
+        print('Wpis dodany')
         h()
     else: 
-        print('Запись не добалена/либо же такая запись уже есть')
+        print('Wpis nie został dodany / albo taki wpis już jest')
         h()
 
 
@@ -85,12 +85,12 @@ def deleteor():
     dell = sqlite3.connect(r'programm/organizator.db')
     pop = dell.cursor()
 
-    uz_nazwa = input('Введите имя организатора: ')
+    uz_nazwa = input('Wpisz nazwę organizatora: ')
 
     pop.execute(f"DELETE FROM organizator WHERE login ='{uz_nazwa}'")
     dell.commit()
     print(pop.fetchall())
-    input('Нажмите Enter, что бы продолжить!')
+    input('Naciśnij Enter, aby kontynuować!')
     dell.close()
     gg()
 def stoped():
@@ -104,6 +104,6 @@ def wsi():
     
     three_results = li.fetchall()
     print(three_results)
-    input("Нажмите Enter, что бы продолжить")
+    input("Naciśnij Enter, aby kontynuować")
     ll.close()
     glawna()

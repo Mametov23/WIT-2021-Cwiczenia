@@ -3,14 +3,14 @@ import sqlite3
 def gg():
     print('Welcome')
     print('Wybierz funkcję poniżej')
-    print('1. Добавить запись')
-    print('2. Удалить запись')
-    print('3. Просмотр записей')
-    print('4. Посмотреть мои жалобы')
-    print('5. Прежупреждения от администратора')
-    print('6. Стоп')
+    print('1. Dodaj wpis')
+    print('2. Usuń wpis')
+    print('3. Zobacz wpisy')
+    print('4. Zobacz moje skargi')
+    print('5. Ostrzeżenia od administratora')
+    print('6. Stop')
 
-    opi = input('Введи число функции: ')
+    opi = input('Wprowadź liczbę funkcji: ')
 
     if opi == '1': 
         dod()
@@ -25,7 +25,7 @@ def gg():
     elif opi == '6 ':
         stop()
     else: 
-        print('Введено не верное число!')
+        print('Wprowadzono błędną liczbę!')
         gg()
 def authh():
 
@@ -66,15 +66,15 @@ def dod():
 
     do.commit()
 
-    users_nazwa = input('Напиши название мероприятия: ')
-    users_opis = input('Опиши, что там будет: ')
-    users_tim = input('Введите время проведения мероприятия: ')
-    users_jezyk = input('На каких языках: ')
-    users_age = int(input('Напиши от какого возраста(например 0): '))
-    users_plat = int(input('Стоимость (0 - это бесплатно): '))
-    users_kraj = input('В какой стране: ')
-    users_city = input('В каком городе: ')
-    users_ul = input('На какой улице будет проходить мероприятие: ')
+    users_nazwa = input('wpisz nazwę imprezy: ')
+    users_opis = input('opisz co tam będzie: ')
+    users_tim = input('podaj czas trwania imprezy: ')
+    users_jezyk = input('w jakich językach: ')
+    users_age = int(input('Napisz od jakiego wieku (np. 0): '))
+    users_plat = int(input('Koszt (0-to nic nie kosztuje): '))
+    users_kraj = input('W jakim kraju: ')
+    users_city = input('W jakim mieście: ')
+    users_ul = input('Na której ulicy odbędzie się impreza: ')
     users_login = loggin
 
     po.execute(f"SELECT * FROM org")
@@ -84,7 +84,7 @@ def dod():
         print('Wpis dodany')
         gg()
     else: 
-        print('Запись не добалена/либо же такая запись уже есть')
+        print('Wpis nie został dodany / albo taki wpis już jest')
         gg()
 
 
@@ -98,19 +98,19 @@ def da():
     three_results = pa.fetchall()
     print(df)
     
-    input("Нажмите Enter, что бы продолжить")
+    input("Naciśnij Enter, aby kontynuować")
     da.close()
     gg()
 def delete(): 
     dell = sqlite3.connect(r'programm/org.db')
     pop = dell.cursor()
 
-    uz_nazwa = input('Введите название мероприятия: ')
+    uz_nazwa = input('Wpisz nazwę wydarzenia: ')
 
     pop.execute(f"DELETE FROM org WHERE nazwa ='{uz_nazwa}'")
     dell.commit()
     print(pop.fetchall())
-    input('Нажмите Enter, что бы продолжить!')
+    input('Naciśnij Enter, aby kontynuować!')
     dell.close()
     gg()
 def zob():
@@ -122,7 +122,7 @@ def zob():
     three_results = pa.fetchall()
     print(df)
     
-    input("Нажмите Enter, что бы продолжить")
+    input("Naciśnij Enter, aby kontynuować")
     da.close()
     gg()
 def stop(): 
@@ -137,6 +137,6 @@ def pred():
     three_results = pa.fetchall()
     print(df)
     
-    input("Нажмите Enter, что бы продолжить")
+    input("Naciśnij Enter, aby kontynuować")
     da.close()
     gg()
